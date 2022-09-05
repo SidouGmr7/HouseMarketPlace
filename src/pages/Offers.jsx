@@ -29,7 +29,7 @@ function Offers() {
           listingsRef,
           where('offer', '==', true),
           orderBy('timestamp', 'desc'),
-          limit(10)
+          limit(1)
         )
 
         // Execute query
@@ -69,7 +69,7 @@ function Offers() {
         where('offer', '==', true),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(10)
+        limit(1)
       )
 
       // Execute query
@@ -97,9 +97,8 @@ function Offers() {
   return (
     <div className='category'>
       <header>
-        <p className='pageHeader'>Offers</p>
+        <p className='p-4 font-bold'>Offers</p>
       </header>
-
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
@@ -119,7 +118,9 @@ function Offers() {
           <br />
           <br />
           {lastFetchedListing && (
-            <p className='loadMore' onClick={onFetchMoreListings}>
+            <p
+              className='font-bold m-auto cursor-pointer rounded-full w-32 p-1 text-center hover:scale-105 transition bg-green-500 bg-opacity-50'
+              onClick={onFetchMoreListings}>
               Load More
             </p>
           )}

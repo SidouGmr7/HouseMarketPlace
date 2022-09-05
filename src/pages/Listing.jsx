@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { getDoc, doc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { db } from '../firebase.config'
@@ -36,22 +35,9 @@ function Listing() {
   return (
     <main>
         <title>{listing.name}</title>
-      <Swiper slidesPerView={1} pagination={{ clickable: true }}>
-        {listing.imgUrls.map((url, index) => (
-          <SwiperSlide key={index}>
-            <div
-              style={{
-                background: `url(${listing.imgUrls[index]}) center no-repeat`,
-                backgroundSize: 'cover',
-              }}
-              className='swiperSlideDiv'
-            ></div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
+          
       <div
-        className='shareIconDiv'
+        className='shareIconDiv mt-14'
         onClick={() => {
           navigator.clipboard.writeText(window.location.href)
           setShareLinkCopied(true)
@@ -68,37 +54,18 @@ function Listing() {
       <div className='listingDetails'>
         <p className='listingName'>
           {listing.name} - $
-          {listing.offer
-            ? listing.discountedPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-            : listing.regularPrice
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+          {listing.offer}
         </p>
         <p className='listingLocation'>{listing.location}</p>
-        <p className='listingType'>
+        <p className='bg-green-500 listingType'>
           For {listing.type === 'rent' ? 'Rent' : 'Sale'}
         </p>
-        {listing.offer && (
-          <p className='discountPrice'>
-            ${listing.regularPrice - listing.discountedPrice} discount
-          </p>
-        )}
-
-        <ul className='listingDetailsList'>
+        <ul className='listingDetailsList '>
           <li>
             {listing.bedrooms > 1
               ? `${listing.bedrooms} Bedrooms`
               : '1 Bedroom'}
           </li>
-          <li>
-            {listing.bathrooms > 1
-              ? `${listing.bathrooms} Bathrooms`
-              : '1 Bathroom'}
-          </li>
-          <li>{listing.parking && 'Parking Spot'}</li>
-          <li>{listing.furnished && 'Furnished'}</li>
         </ul>
 
         <p className='listingLocationTitle'>Location</p>

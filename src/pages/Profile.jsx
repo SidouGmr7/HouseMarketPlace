@@ -59,10 +59,6 @@ function Profile() {
     fetchUserListings()
   }, [auth.currentUser.uid])
 
-  const onLogout = () => {
-    auth.signOut()
-    navigate('/')
-  }
 
   const onSubmit = async () => {
     try {
@@ -108,9 +104,7 @@ function Profile() {
     <div className='profile'>
       <header className='profileHeader'>
         <p className='pageHeader'>My Profile</p>
-        <button type='button' className='logOut' onClick={onLogout}>
-          Logout
-        </button>
+      
       </header>
 
       <main>
@@ -121,8 +115,7 @@ function Profile() {
             onClick={() => {
               changeDetails && onSubmit()
               setChangeDetails((prevState) => !prevState)
-            }}
-          >
+            }}>
             {changeDetails ? 'done' : 'change'}
           </p>
         </div>

@@ -139,10 +139,7 @@ button {
   }
 }
 
-.pageHeader {
-  font-size: 2rem;
-  font-weight: 800;
-}
+
 
 .navbar {
   position: fixed;
@@ -312,16 +309,7 @@ button {
   }
 }
 
-.exploreHeading,
-.exploreCategoryHeading {
-  font-weight: 700;
-}
-
-.exploreCategoryHeading {
-  margin-top: 3rem;
-}
-
-.swiper-container {
+/*.swiper-container {
   min-height: 225px;
   height: 23vw;
 }
@@ -374,14 +362,7 @@ button {
     font-size: 1.25rem;
   }
 }
-
-.exploreCategories {
-  display: flex;
-  justify-content: space-between;
-}
-.exploreCategories a {
-  width: 48%;
-}
+*/
 
 .exploreCategoryImg {
   min-height: 115px;
@@ -389,7 +370,7 @@ button {
   width: 100%;
   border-radius: 1.5rem;
   object-fit: cover;
-  margin: 0 auto;
+  
 }
 
 .exploreCategoryName {
@@ -456,7 +437,6 @@ button {
   margin-top: 0.5rem;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #00cc66;
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -471,20 +451,6 @@ button {
 .categoryListingInfoText {
   font-weight: 500;
   font-size: 0.7rem;
-}
-
-.loadMore {
-  cursor: pointer;
-  width: 8rem;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0.25rem 0.5rem;
-  background-color: #000000;
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 1rem;
-  opacity: 0.7;
-  margin-top: 2rem;
 }
 
 .listingDetails {
@@ -529,7 +495,6 @@ button {
 
 .listingType {
   padding: 0.25rem 0.5rem;
-  background-color: #00cc66;
   color: #ffffff;
   border-radius: 2rem;
   display: inline;

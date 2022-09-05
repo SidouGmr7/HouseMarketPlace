@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Slider from '../components/Slider'
 import rentCategoryImage from '../assets/jpg/rentCategoryImage.jpg'
 import sellCategoryImage from '../assets/jpg/sellCategoryImage.jpg'
 
@@ -7,28 +6,34 @@ function Explore() {
   return (
     <div className='explore '>
       <header>
-        <p className='text-3xl'>Explore</p>
+        <p className='text-green-500 md:text-4xl text-2xl font-bold'>Explore</p>
       </header>
       <main>
-        <Slider />
-
-        <p className='exploreCategoryHeading'>Categories</p>
-        <div className='exploreCategories'>
-          <Link to='/category/rent'>
+        <p className=' p-6 font-bold'>Categories</p>
+        <div className='exploreCategories flex justify-between'>
+          <Link
+            to='/category/rent'
+            className='relative hover:scale-105 transition w-[48%]'>
             <img
               src={rentCategoryImage}
               alt='rent'
-              className='exploreCategoryImg'
+              className='exploreCategoryImg '
             />
-            <p className='exploreCategoryName'>Places for rent</p>
+            <p className='absolute md:bottom-5 bottom-2 right-5 text-white bg-opacity-25 bg-green-500 rounded-xl p-1 md:p-2 font-bold md:text-xl text-sm'>
+              Places for rent
+            </p>
           </Link>
-          <Link to='/category/sale'>
+          <Link
+            to='/category/sale'
+            className='relative hover:scale-105 transition w-[48%]'>
             <img
               src={sellCategoryImage}
               alt='sell'
-              className='exploreCategoryImg'
+              className='exploreCategoryImg  '
             />
-            <p className='exploreCategoryName'>Places for sale</p>
+            <p className=' absolute md:bottom-5 bottom-2 right-5 text-white bg-opacity-25 bg-green-500 rounded-xl p-1 md:p-2 font-bold md:text-xl text-sm'>
+              Places for sale
+            </p>
           </Link>
         </div>
       </main>
