@@ -97,7 +97,9 @@ function Offers() {
   return (
     <div className='category'>
       <header>
-        <p className='p-4 font-bold'>Offers</p>
+        <p className='text-green-500 md:text-4xl text-2xl font-bold mb-5'>
+          Offers
+        </p>
       </header>
       {loading ? (
         <Spinner />

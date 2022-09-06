@@ -34,10 +34,14 @@ function OAuth() {
     }
   }
   return (
-    <div className='socialLogin'>
-      <p>Sign {location.pathname === '/sign-up' ? 'up' : 'in'} with </p>
-      <button className='socialIconDiv' onClick={onGoogleClick}>
-        <img className='socialIconImg' src={googleIcon} alt='google' />
+    <div className='flex flex-col items-center '>
+      <p className='md:hidden'>
+        Sign {location.pathname === '/sign-up' ? 'up' : 'in'} with{' '}
+      </p>
+      <button
+        className='bg-white p-3 md:p-2 rounded-full md:w-10 w-12 m-3 md:m-0 md:shadow-sm shadow-xl hover:scale-110'
+        onClick={onGoogleClick}>
+        <img src={googleIcon} alt='google' />
       </button>
     </div>
   )

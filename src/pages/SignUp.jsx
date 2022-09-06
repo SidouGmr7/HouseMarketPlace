@@ -64,7 +64,7 @@ function SignUp() {
     <>
       <div className='pageContainer'>
         <header>
-          <p className='pageHeader'>Welcome Back!</p>
+          <p className='p-4 font-bold text-xl'>Welcome Back!</p>
         </header>
 
         <form onSubmit={onSubmit}>
@@ -103,9 +103,16 @@ function SignUp() {
             />
           </div>
 
-          <Link to='/forgot-password' className='forgotPasswordLink'>
-            Forgot Password
-          </Link>
+          <div className='flex flex-row md:right-16 right-6 absolute gap-3'>
+            <Link to='/sign-in' className='text-green-500 font-semibold'>
+              Sign In
+            </Link>
+            <Link
+              to='/forgot-password'
+              className='text-green-500 font-semibold'>
+              Forgot Password
+            </Link>
+          </div>
 
           <div className='signUpBar'>
             <p className='signUpText'>Sign Up</p>
@@ -114,12 +121,9 @@ function SignUp() {
             </button>
           </div>
         </form>
-
-        <OAuth />
-
-        <Link to='/sign-in' className='registerLink'>
-          Sign In Instead
-        </Link>
+        <div className='md:hidden'>
+          <OAuth />
+        </div>
       </div>
     </>
   )

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthStatus } from '../hooks/useAuthStatus'
 import { getAuth } from 'firebase/auth'
 import { AiOutlineLogout } from 'react-icons/ai'
+import OAuth from './OAuth'
 
 function Navbar() {
   const navigate = useNavigate()
@@ -19,15 +20,15 @@ function Navbar() {
         <div className='flex items-center justify-center'>
           <div className='flex items-center gap-2'>
             <p className='md:text-xl'>
-              <span className='text-green-500  font-bold'>H</span>ouse
-              <span className='text-green-500  font-bold'>M</span>arket
-              <span className='text-green-500  font-bold'>P</span>lace
+              <span className='text-green-500 font-bold'>H</span>ouse
+              <span className='text-green-500 font-bold'>M</span>arket
+              <span className='text-green-500 font-bold'>P</span>lace
             </p>
           </div>
           {loggedIn && (
             <button
               type='button'
-              className='hover:scale-110 transition cursor-pointer absolute right-5'
+              className='hover:scale-110 transition cursor-pointer absolute right-5 md:hidden'
               onClick={onLogout}>
               <AiOutlineLogout />
             </button>
@@ -55,17 +56,19 @@ function Navbar() {
                 </button>
               </li>
             ) : (
-              <li className='text-lg hover:scale-110 transition cursor-pointer hover:text-green-500  text-black'>
-                <button
-                  type='button'
-                  className='logOut'
-                  onClick={() => navigate('/profile')}>
-                  Login
-                </button>
-              </li>
+              <>
+                <li className='text-lg hover:scale-110 transition cursor-pointer hover:text-green-500  text-black'>
+                  <button
+                    type='button'
+                    className='logOut'
+                    onClick={() => navigate('/profile')}>
+                    Login
+                  </button>
+                </li>
+              </>
             )}
           </ul>
-          {loggedIn && (
+          {loggedIn ? (
             <div className='relative'>
               <img
                 whileTap={{ scale: 0.6 }}
@@ -75,6 +78,8 @@ function Navbar() {
                 onClick={() => navigate('/profile')}
               />
             </div>
+          ) : (
+            <OAuth />
           )}
         </div>
       </div>

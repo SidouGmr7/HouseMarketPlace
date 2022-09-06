@@ -2,10 +2,14 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { ReactComponent as OfferIcon } from '../assets/svg/localOfferIcon.svg'
 import { ReactComponent as ExploreIcon } from '../assets/svg/exploreIcon.svg'
 import { ReactComponent as PersonOutlineIcon } from '../assets/svg/personOutlineIcon.svg'
+import { useAuthStatus } from '../hooks/useAuthStatus'
+
 
 function Footer() {
   const navigate = useNavigate()
   const location = useLocation()
+  const { loggedIn } = useAuthStatus()
+
 
   const pathMatchRoute = (route) => {
     if (route === location.pathname) {
@@ -58,7 +62,7 @@ function Footer() {
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
               }>
-              Profile
+              {loggedIn ? 'Profile' : 'Login' } 
             </p>
           </li>
         </ul>

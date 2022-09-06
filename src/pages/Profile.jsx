@@ -103,13 +103,14 @@ function Profile() {
   return (
     <div className='profile'>
       <header className='profileHeader'>
-        <p className='pageHeader'>My Profile</p>
+        <p className='text-green-500 md:text-4xl text-2xl font-bold mb-5'>My Profile</p>
+
       
       </header>
 
       <main>
         <div className='profileDetailsHeader'>
-          <p className='profileDetailsText'>Personal Details</p>
+          <p className='font-bold p-2'>Personal Details</p>
           <p
             className='changePersonalDetails'
             onClick={() => {
@@ -149,7 +150,7 @@ function Profile() {
 
         {!loading && listings?.length > 0 && (
           <>
-            <p className='listingText'>Your Listings</p>
+            <p className='listingText p-2'>Your Listings</p>
             <ul className='listingsList'>
               {listings.map((listing) => (
                 <ListingItem

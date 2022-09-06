@@ -78,9 +78,14 @@ function SignIn() {
             />
           </div>
 
-          <Link to='/forgot-password' className='forgotPasswordLink'>
-            Forgot Password
-          </Link>
+          <div className='flex flex-row md:right-16 right-6 absolute gap-4'>
+            <Link to='/sign-up' className='text-green-500 font-semibold'>
+              Sign Up
+            </Link>
+            <Link to='/forgot-password' className='text-green-500 font-semibold'>
+              Forgot Password
+            </Link>
+          </div>
 
           <div className='signInBar'>
             <p className='signInText'>Sign In</p>
@@ -89,12 +94,9 @@ function SignIn() {
             </button>
           </div>
         </form>
-
-        <OAuth />
-
-        <Link to='/sign-up' className='registerLink'>
-          Sign Up Instead
-        </Link>
+        <div className='md:hidden'>
+          <OAuth />
+        </div>
       </div>
     </>
   )

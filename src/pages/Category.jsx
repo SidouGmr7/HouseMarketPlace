@@ -31,8 +31,8 @@ function Category() {
         const q = query(
           listingsRef,
           where('type', '==', params.categoryName),
-          orderBy('timestamp', 'desc'),
-          limit(10)
+          orderBy('timestamp', 'asc'),
+          limit(1)
         )
 
         // Execute query
@@ -70,9 +70,9 @@ function Category() {
       const q = query(
         listingsRef,
         where('type', '==', params.categoryName),
-        orderBy('timestamp', 'desc'),
+        orderBy('timestamp', 'asc'),
         startAfter(lastFetchedListing),
-        limit(10)
+        limit(1)
       )
 
       // Execute query
@@ -100,13 +100,12 @@ function Category() {
   return (
     <div className='category'>
       <header>
-        <p className='pageHeader'>
+        <p className='text-green-500 md:text-4xl text-2xl font-bold mb-5'>
           {params.categoryName === 'rent'
             ? 'Places for rent'
             : 'Places for sale'}
         </p>
       </header>
-
       {loading ? (
         <Spinner />
       ) : listings && listings.length > 0 ? (
