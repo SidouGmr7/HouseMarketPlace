@@ -4,14 +4,16 @@ import { useAuthStatus } from '../hooks/useAuthStatus'
 import { getAuth } from 'firebase/auth'
 import { AiOutlineLogout } from 'react-icons/ai'
 import OAuth from './OAuth'
+import SignIn from './../pages/SignIn'
 
 function Navbar() {
   const navigate = useNavigate()
   const { loggedIn } = useAuthStatus()
-
+  const auth = getAuth()
   const onLogout = () => {
-    getAuth().signOut()
+    auth.signOut()
     navigate('/')
+    window.location.reload()
   }
 
   return (
@@ -28,7 +30,7 @@ function Navbar() {
           {loggedIn && (
             <button
               type='button'
-              className='hover:scale-110 transition cursor-pointer absolute right-5 md:hidden'
+              className='scale-150 cursor-pointer absolute right-5 md:hidden'
               onClick={onLogout}>
               <AiOutlineLogout />
             </button>
@@ -71,8 +73,10 @@ function Navbar() {
           {loggedIn ? (
             <div className='relative'>
               <img
-                whileTap={{ scale: 0.6 }}
-                src={SidouProfile2}
+                whiletap={{ scale: 0.6 }}
+                src={
+                  auth.currentUser == null ? 'null' : auth.currentUser.photoURL
+                }
                 className='w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full'
                 alt='userprofile'
                 onClick={() => navigate('/profile')}
