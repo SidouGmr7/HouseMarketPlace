@@ -1,10 +1,8 @@
-import SidouProfile2 from '../assets/img/SidouProfile2.jpg'
 import { useNavigate } from 'react-router-dom'
-import { useAuthStatus } from '../hooks/useAuthStatus'
+import { useAuthStatus } from '../Platform/Authentication/hooks/useAuthStatus'
 import { getAuth } from 'firebase/auth'
 import { AiOutlineLogout } from 'react-icons/ai'
-import OAuth from './OAuth'
-import SignIn from './../pages/SignIn'
+import OAuth from '../Platform/Authentication/Components/OAuth'
 
 function Navbar() {
   const navigate = useNavigate()
